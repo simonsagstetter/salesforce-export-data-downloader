@@ -1,0 +1,7 @@
+{
+    "username": "",
+    "password": "",
+    "security_token": "",
+    "auth_url": "<org_url>/services/Soap/u/<Version>",
+    "org_url": ""
+}
