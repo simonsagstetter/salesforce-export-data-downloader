@@ -10,7 +10,7 @@ In Salesforce Enterprise, Performance, Unlimited, and Developer editions you can
 
 ### Configuration
 
-> Open the config.json and enter your credentials and salesforce organization information. The user needs to have access to the export data home.
+> Open the config.json and enter your credentials and salesforce organization information. The user needs to have access to the export data home. If you configure a sender and a receiver email you will receive a notification after the job hast finished
 ```json
   {
     "username": "<your_username",
