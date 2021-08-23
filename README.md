@@ -17,7 +17,9 @@ In Salesforce Enterprise, Performance, Unlimited, and Developer editions you can
     "password": "<your_password>",
     "security_token": "<your_orgs_security_token>",
     "auth_url": "<your_domain>.my.salesforce.com/services/Soap/u/<Version>",
-    "org_url": "<your_domain>.my.salesforce.com"
+    "org_url": "<your_domain>.my.salesforce.com",
+    "sender": "",
+    "receiver": ""
   }
 ```
 
