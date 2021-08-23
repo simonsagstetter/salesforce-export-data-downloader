@@ -16,7 +16,7 @@ def loadConfig():
 
     return Configuration(c["username"],c["password"],
                            c["security_token"], c["auth_url"]
-                           ,c["org_url"])
+                           ,c["org_url"],c["sender"],c["receiver"])
 
 def login(CONFIG):
     headers = {

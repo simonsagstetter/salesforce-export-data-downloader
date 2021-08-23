@@ -3,12 +3,15 @@ import xml.etree.ElementTree as ET
 
 class Configuration():
     def __init__(self, USERNAME, PASSWORD,
-                SECURITY_TOKEN, AUTH_URL, ORG_URL):
+                SECURITY_TOKEN, AUTH_URL, ORG_URL,
+                SENDER, RECEIVER):
         self.USERNAME=USERNAME
         self.PASSWORD=PASSWORD
         self.SECURITY_TOKEN=SECURITY_TOKEN
         self.AUTH_URL=AUTH_URL
         self.ORG_URL=ORG_URL
+        self.SENDER=SENDER
+        self.RECEIVER=RECEIVER
 
 class Result():
     def __init__(self, XML_DOC):

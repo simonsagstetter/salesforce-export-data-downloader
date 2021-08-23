@@ -11,6 +11,10 @@ from settings import (
 Result
 )
 
+from sendmail import (
+send_mail
+)
+
 print('#### Starting Salesforce Export Data Downloader ####')
 CONFIG = loadConfig()
 print('Configuration loaded...')
@@ -23,3 +27,4 @@ print('Please wait...')
 FILE = downloadFile(LINK, RESULT, CONFIG)
 print('Download Completed!')
 print('Your file is located: ' + FILE)
+send_mail(CONFIG)
