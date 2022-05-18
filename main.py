@@ -1,4 +1,4 @@
-# COPYRIGHT @ 2021 Simon, Sagstetter
+# COPYRIGHT @ 2022 Simon, Sagstetter
 import requests, os, json, sys
 from tqdm import tqdm
 from settings import Configuration, SfError
@@ -7,7 +7,7 @@ ROOT=os.path.dirname(os.path.abspath(__file__))
 
 def loadConfig():
     try:
-        with open(ROOT + "\config.json") as config:
+        with open(os.path.join(ROOT, "config.json")) as config:
             c = json.load(config)
             config.close()
     except:
@@ -18,23 +18,20 @@ def loadConfig():
                            c["security_token"], c["auth_url"]
                            ,c["org_url"],c["sender"],c["receiver"])
 
+def getLoginXML(CONFIG):
+    with open(os.path.join(ROOT, "login.xml"), "r") as loginXML:
+        data = loginXML.read()
+    data = data.replace("{{! USERNAME }}", CONFIG.USERNAME)
+    data = data.replace("{{! PASSWORD }}", CONFIG.PASSWORD)
+    data = data.replace("{{! SECURITY_TOKEN }}", CONFIG.SECURITY_TOKEN)
+    return data
+
 def login(CONFIG):
     headers = {
-        "Content-Type" : "text/xml",
-        "SOAPAction" : "login"
+        "Content-Type" : "text/xml; charset=UTF-8",
+        "SOAPAction": "login"
     }
-
-    data = """<?xml version="1.0" encoding="utf-8" ?>
-    <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
-      <env:Body>
-        <n1:login xmlns:n1="urn:partner.soap.sforce.com">
-          <n1:username>""" + CONFIG.USERNAME +"""</n1:username>
-          <n1:password>""" + CONFIG.PASSWORD + CONFIG.SECURITY_TOKEN + """</n1:password>
-        </n1:login>
-      </env:Body>
-    </env:Envelope>"""
+    data = getLoginXML(CONFIG)
     r = requests.post(CONFIG.AUTH_URL, data=data, headers=headers)
     if r.status_code == 200:
         return r
@@ -62,11 +59,11 @@ def getFileLink(RESULT, CONFIG):
 def downloadFile(LINK, RESULT, CONFIG):
     REQ_URL = CONFIG.ORG_URL + LINK
     fileName = LINK[(LINK.find('fileName') +9):(LINK.find('&'))]
-    DIR = ROOT + "\\downloads\\"
+    DIR = os.path.join(ROOT, "downloads")
     CHECK_FOLDER = os.path.isdir(DIR)
     if not CHECK_FOLDER:
         os.makedirs(DIR)
-    Location = ROOT + "\\downloads\\" + fileName
+    Location = os.path.join(DIR, fileName)
     h = headers(RESULT)
     try:
         with requests.get(REQ_URL.strip(), headers=h, stream=True) as r:

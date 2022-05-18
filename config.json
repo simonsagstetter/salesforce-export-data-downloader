@@ -2,8 +2,8 @@
   "username": "",
   "password": "",
   "security_token": "",
-  "auth_url": "<org_url>/services/Soap/u/<Version>",
-  "org_url": "",
+  "auth_url": "https://login.salesforce.com/services/Soap/u/<version>",
+  "org_url": "<your_domain>.my.salesforce.com",
   "sender": "",
   "receiver": ""
 }

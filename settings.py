@@ -1,4 +1,4 @@
-# COPYRIGHT @ 2021 Simon, Sagstetter
+# COPYRIGHT @ 2022 Simon, Sagstetter
 import xml.etree.ElementTree as ET
 
 class Configuration():

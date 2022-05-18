@@ -1,4 +1,4 @@
-# COPYRIGHT @ 2021 Simon, Sagstetter
+# COPYRIGHT @ 2022 Simon, Sagstetter
 from main import (
 loadConfig,
 login,

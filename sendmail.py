@@ -1,3 +1,4 @@
+# COPYRIGHT @ 2022 Simon, Sagstetter
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -26,5 +27,5 @@ def send_mail(CONFIG):
     message.attach(part2)
     with smtplib.SMTP("localhost") as server:
         server.sendmail(
-            sender_email, receiver_email, message.as_string()
+            CONFIG.sender, CONFIG.receiver, message.as_string()
         )
