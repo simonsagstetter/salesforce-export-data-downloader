@@ -5,5 +5,9 @@
   "auth_url": "https://login.salesforce.com/services/Soap/u/<version>",
   "org_url": "<your_domain>.my.salesforce.com",
   "sender": "",
-  "receiver": ""
+  "receiver": "",
+  "smtp_host": "",
+  "smtp_port": "",
+  "smtp_user": "",
+  "smtp_password": ""
 }

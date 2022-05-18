@@ -16,7 +16,9 @@ def loadConfig():
 
     return Configuration(c["username"],c["password"],
                            c["security_token"], c["auth_url"]
-                           ,c["org_url"],c["sender"],c["receiver"])
+                           ,c["org_url"],c["sender"],c["receiver"],
+                           c["smtp_host"], c["smtp_port"], c["smtp_user"],
+                           c["smtp_password"])
 
 def getLoginXML(CONFIG):
     with open(os.path.join(ROOT, "login.xml"), "r") as loginXML:

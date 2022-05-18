@@ -4,7 +4,8 @@ import xml.etree.ElementTree as ET
 class Configuration():
     def __init__(self, USERNAME, PASSWORD,
                 SECURITY_TOKEN, AUTH_URL, ORG_URL,
-                SENDER, RECEIVER):
+                SENDER, RECEIVER, SMTP_HOST, SMTP_PORT,
+                SMTP_USER, SMTP_PASSWORD):
         self.USERNAME=USERNAME
         self.PASSWORD=PASSWORD
         self.SECURITY_TOKEN=SECURITY_TOKEN
@@ -12,6 +13,10 @@ class Configuration():
         self.ORG_URL=ORG_URL
         self.SENDER=SENDER
         self.RECEIVER=RECEIVER
+        self.SMTP_HOST=SMTP_HOST
+        self.SMTP_PORT=int(SMTP_PORT)
+        self.SMTP_USER=SMTP_USER
+        self.SMTP_PASSWORD=SMTP_PASSWORD
 
 class Result():
     def __init__(self, XML_DOC):
