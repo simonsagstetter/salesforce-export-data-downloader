@@ -10,7 +10,7 @@ In Salesforce Enterprise, Performance, Unlimited, and Developer editions you can
 
 ### Configuration
 
-> Open the config.json and enter your credentials and salesforce organization information. The user needs to have access to the export data home. If you configure a sender and a receiver email you will receive a notification after the job hast finished
+> Open the config.json and enter your credentials and salesforce organization information. The user needs to have access to the export data home. You can also define an external smtp server for sending a success message.
 ```json
   {
     "username": "<your_username",
@@ -19,7 +19,11 @@ In Salesforce Enterprise, Performance, Unlimited, and Developer editions you can
     "auth_url": "<your_domain>.my.salesforce.com/services/Soap/u/<Version>",
     "org_url": "<your_domain>.my.salesforce.com",
     "sender": "",
-    "receiver": ""
+    "receiver": "",
+    "smtp_host": "",
+    "smtp_port": "",
+    "smtp_user": "",
+    "smtp_password": ""
   }
 ```
 
